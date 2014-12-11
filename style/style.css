@@ -1,0 +1,160 @@
+html {
+	background: url('./../img/Savant-Ascent.png') center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+body {
+	font-size : 13pt;
+	font-family : "Trebuchet MS", Arial, sans-serif;
+	text-align: center;
+}
+h2 {
+	margin-top : 0px;
+	font-weight : bold;
+}
+h3 {
+	font-size: 20px;
+}
+#status {
+	position : fixed;
+	top : 15px;
+	z-index: 99;
+	left: 5%;
+	padding: 10px;
+	text-align : center;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#table-status td {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+#table-status td.value {
+	height: 20px;
+}
+#status div {
+	display : inline-block;
+	padding : 10px;
+	color : white;
+}
+#status div+div {
+	border-left : none;
+}
+.section, .fight {
+	padding : 10px;
+	margin : auto;
+	margin-top : 150px;
+	max-width : 600px;
+	/*border : 1px solid #000;*/
+	display: none;
+	background-color: rgba(255, 255, 255, 0.9);;
+	color: #000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.section#intro {
+	display : block;
+}
+.section button {
+	display : block;
+	width : 100%;
+	font-size: 1em;
+	color : white;
+	text-decoration : none;
+	padding : 5px;
+	margin-top : 30px;
+	background : rgba(37,28,51,0.9);
+	border : none;
+	cursor : pointer;
+}
+.section button+button  {
+	margin-top : 10px;
+}
+.gif {
+	margin-top: 10px;
+	max-width: 500px;
+	max-height: 250px;
+}
+.cinematique {
+	max-width: 450px;
+}
+#wyrm2, #wyrm3 {
+	display: none;
+}
+.static {
+	max-width: 450px;
+	max-height: 250px;
+}
+.section button:hover {
+	color : white;
+	background-color : rgba(37,28,51,0.8);
+}
+.battle {
+	padding : 10px 10px;
+	margin : 20px 0px;
+	box-shadow : 0px 2px 8px gray;
+}
+.combinaison {
+	width: 500px;
+	margin-top: 0px;
+	height: auto;
+	display: none;
+}
+.gg, .zero {
+	display: none;
+}
+.your-turn {
+	color: black;
+	font-size: 20px;
+}
+div#lecteur {
+	position : fixed;
+	top : 15px;
+	right: 5%;
+	background-color: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+div#lecteur p {
+	margin-top:0;
+
+}
+audio, span {
+	display: none;
+	color: white;
+}
+audio#song1 {
+	display: inline;
+}
+span#title1 {
+	display: inline;
+	float: center;
+}
+.cover {
+	height: 60px;
+	width: 60px;
+	float: left;
+	margin-left: 15%;
+	margin-top: 2%;
+}
+span.value {
+	display: inline-block;
+}
+.pv {
+	width:40px;
+	margin: 5px 5px 0 5px;
+}
+div.item {
+	padding: 0px;
+}
+.item .value img {
+	width: 50px;
+}

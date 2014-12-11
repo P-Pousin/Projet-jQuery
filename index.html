@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery.js"></script>
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<script src="js/sorcery.js"></script>
+		<link type="text/css" rel="stylesheet" href="style/style.css" />
+		<meta lang="fr" xml:lang="fr" content="text/html;charset=UTF-8" http-equiv="Content-Type">
+		<title>Savant Game</title>
+	</head>
+	<body>
+		<div id="status">
+			<table id="table-status">
+					<tr class="life">
+						<td>PV : </td><td class="value"> -- </td>
+					</tr>
+					<tr class="item">
+						<td>Items : </td><td class="value"> -- </td>
+					</tr>
+			</table>
+		</div>
+		<div id="lecteur">
+			<audio id="song1" controls="controls">
+				<source src="son/Savant-ISM.mp3" type="audio/mpeg">
+				<source src="son/Savant-ISM.ogg" type="audio/ogg">
+			</audio>
+			<audio id="song2" controls="controls">
+				<source src="son/Savant-Aquarius.ogg" type="audio/ogg">
+					<source src="son/Savant-Aquarius.mp3" type="audio/mpeg">
+					</audio>
+			<audio id="song3" controls="controls">
+				<source src="son/Savant-Splinter.mp3" type="audio/mpeg">
+				<source src="son/Savant-Splinter.ogg" type="audio/ogg">
+			</audio>
+			<p>
+				<span id="title1"><img class="cover" src="img/Alchemist.jpg">Savant - ISM</span>
+				<span id="title2"><img class="cover" src="img/Protos.jpg">Savant - Aquarius</span>
+				<span id="title3"><img class="cover" src="img/Vario.jpg">Savant - Splinter</span>
+				<span id="title4"><img class="cover" src="img/Alchemist.jpg">Savant - Konami Kode</span>
+			</p>
+			<p>
+				<button class="prev-audio">PREV</button>
+				<button class="next-audio">NEXT</button>
+			</p>
+		</div>
+		<div class="section" id="dead">
+			<h2>Vous êtes mort !</h2>
+			<p>Vous n'avez plus de points de vie</p>
+			<img class="cinematique" src="img/dead.png">
+			<button class="reset">Recommencer</button>
+		</div>
+		<div class="section" id="intro">
+			<h2>Savant Ascension</h2><br/>
+			<img class="gif" src="img/gif_savant_ascent_by_lostriplet-d6v4j9t.gif">
+			<button go="wake-up">Commencer l'aventure !</button>
+		</div>
+		<div class="section" id="wake-up">
+			<h2>Vous arrivez dans une tour.</h2><br/>
+			<img class="gif" id="gif1" src="img/entreeTour.gif">
+			<button go="fight">Se relever</button>
+		</div>
+		<div class="section" id="fight">
+			<h3>3 robots volants apparaissent devant vous</h3>
+			<img class="static" src="img/FoddersT.png">
+			<button go="two-doors">Se cacher</button>
+			<button go="wait" pv-="1">Attendre</button>
+			<button go="destroy">Détruire</button>
+		</div>
+		<div class="section" id="wait">
+			<h2>Vous perdez 1 PV</h2>
+			<button go="fight">OK</button>
+		</div>
+		<div class="section" id="destroy">
+			<h2>Vous gagnez un mystérieux CD !</h2>
+			<img class="gif" id="gif2" src="img/destroyFoddersNoRepeat.gif">
+			<button go="two-doors" cd="true">Continuer l'aventure !</button>
+		</div>
+		<div class="section" id="two-doors">
+			<h2>2 immenses portes se dressent devant vous. </h2>
+			<img class="static" src="img/two-doors.jpg">
+			<button go="right-door">Aller à droite</button>
+			<button go="left-door">Aller à gauche</button>
+			<button go="turn-back" cd="false" pv-="1">Retourner sur vos pas</button>
+		</div>
+		<div class="section" id="right-door">
+			<h2>Vous avancez tout droit vers un couloir sombre ...</h2>
+			<button go="go-out">Continuer</button>
+		</div>
+		<div class="section" id="left-door">
+			<h2>Vous montez</h2>
+			<img class="gif" src="img/go-upstair.gif">
+			<button go="fight2">Descendre de l'ascenseur</button>
+		</div>
+		<div class="section" id="turn-back">
+			<h2>
+				<p id="cd">Vous perdez 1PV </p>
+				<p>Dommage</p>
+				<img class="cinematique" src="img/turn-back.jpg">
+				<button go="two-doors" cd="false">Continuer l'aventure !</button>
+			</h2>
+		</div>
+		<div class="section" id="go-out">
+			<h2>Une force mystérieuse vous expulse du bâtiment !!</h2>
+			<img class="cinematique" src="img/go-out.jpg">
+		</div>
+		<div class="section" id="samurai0">
+			<h2>Vous vous retrouvez face au terrible Samurai !!</h2>
+			<img id="gif" src="img/samurai.gif">
+			<button go="dead-samurai0">Combattre</button>
+		</div>
+		<div class="section" id="dead-samurai0">
+			<h2>
+				<p>Vous n'étiez pas encore prêt pour ce Boss...</p>
+				<p>Tentez la porte gauche la prochaine fois</p>
+			</h2>
+			<img class="cinematique" src="img/dead.png">
+			<button class="reset">Recommencer</button>
+		</div>
+		<div class="section" id="fight2">
+			<h2>Vous vous retrouvez contre une armée de robots volants !</h2>
+			<img class="static" src="img/surrended2.jpg">
+			<button go="destroy2">Detruire</button>
+			<button go="dodge" pv-="1">Esquiver</button>
+			<button go="wait2" pv-="1">Attendre</button>
+		</div>
+		<div class="section" id="destroy2">
+			<h2>Vous êtes si habile que vous détruisez tout sur votre passage</h2>
+			<img class="static" src="img/destroy3.png">
+			<button go="vario">Continuer</button>
+		</div>
+		<div class="section" id="dodge">
+			<h2>Vous vous retrouvez face des chenilles géantes</h2>
+			<p>En esquivant vous avez chargé votre attaque</p>
+			<p>Vous arrivez donc à la détruire mais vous perdez 1PV</p>
+			<img class="static" id="wyrm1" src="img/big-wyrm.png">
+			<img class="static" id="wyrm2" src="img/destroy-wyrms0.jpg">
+			<img class="static" id="wyrm3" src="img/destroy-wyrms2.jpg">
+			<button go="vario">Continuer</button>
+		</div>
+		<div class="section" id="wait2">
+			<h2>Vous perdez 1PV</h2>
+			<p>Dommage</p>
+			<button go="fight2">Revenir en arrière</button>
+		</div>
+		<div class="section" id="vario">
+			<h2>Vous vous retrouvez face au terrible Vario !</h2>
+			<img class="gif" id="gif3" src="img/Vario3.gif">
+			<button go="vario-2" pv-="2">Combattre</button>
+		</div>
+		<div class="section" id="vario-1">
+			<h2>Grâce à votre bonus CD vous ne perdez qu'1 PV</h2>
+			<img class="static" src="img/vario-fight.jpg">
+			<button go="bonus-ball" ckpoint="true">OK</button>
+		</div>
+		<div class="section" id="vario-2">
+			<h2>Vous avez perdu votre bonus CD le combat est donc plus difficile</h2>
+			<h2>Vous perdez 2 PV</h2>
+			<img class="static" src="img/vario-fight.jpg">
+			<button go="bonus-ball">OK</button>
+		</div>
+		<div class="section" id="bonus-ball">
+			<h2>Bravo vous avez vaincu le terrible Vario !</h2>
+			<p>Vous récupérez la pierre philosophale, à partir de maintenant,
+				elle vous permettra de recommencer ici quand vous mourrez</p>
+			<img class="cinematique" src="img/vario-fight.gif">
+			<button go="laser-sharks">OK</button>
+		</div>
+		<div class="section" id="check-point">
+			<h2>la pierre philosophale vous permet de revivre après Vario</h2>
+			<img class="cinematique" src="img/vario-win-1.png">
+			<button go="laser-sharks">Continuer</button>
+		</div>
+		<div class="section" id="laser-sharks">
+			<h2>La bande des Laser Sharks se dresse devant vous !</h2>
+			<p>Vous ne pouvez en attaquer qu'un seul ...</p>
+			<img class="static" src="img/laser-sharks.png">
+			<button go="laser-sharks-g" pv-="1">Gauche</button>
+			<button go="laser-sharks-c">Milieu</button>
+			<button go="laser-sharks-d">Droite</button>
+		</div>
+		<div class="section" id="laser-sharks-g">
+			<h2>Vous le terrassez mais vous perdez quand même 1PV</h2>
+			<button go="pre-samurai">Continuer</button>
+		</div>
+		<div class="section" id="laser-sharks-c">
+			<h2>Celui là était trop fort... Vous mourrez</h2>
+			<img class="cinematique" src="img/dead.png">
+			<button go="check-point" class="reset-ck">Recommencer</button>
+		</div>
+		<div class="section" id="laser-sharks-d">
+			<h2>Quelle chance celui là était le plus faible !</h2>
+			<p>Vous regagnez 1PV</p>
+			<button go="pre-samurai" pv+="1">Continuer</button>
+		</div>
+		<div class="section" id="pre-samurai">
+			<h2>Vous continuez à avancer et sortez du bâtiment</h2>
+			<img class="cinematique" src="img/pre-samurai.jpg">
+			<button go="samurai">Continuer</button>
+		</div>
+		<div class="section" id="samurai">
+			<h2>Le redoutable Samurai se dresse devant vous</h2>
+			<img class="cinematique" src="img/samurai.gif">
+			<button go="samurai-fight" nb="1">Combattre !</button>
+		</div>
+		<div class="section" id="samurai-fight-1" nb="1">
+			<h2 class="cacher">Pour battre le Samurai vous devrez 
+				réaliser les combinaisons qui vont apparaître.</h2>
+			<p class="cacher">Chaque combinaison va s'afficher 
+				quelques secondes puis disparaître, vous devrez la 
+				reproduire pour passer à la suivante.</p>
+			<p class="cacher">La 1ère va s'afficher 5 secondes</p>
+			<img class="combinaison" id="combinaison-1" src="img/combinaison-1.png">
+			<span class="your-turn">A vous de jouer !</span>
+			<button class="gg" go="samurai-fight" nb="2">Bravo ! Passer au suivant</button>
+			<button class="zero" go="samurai">Perdu ! Try again</button>
+		</div>
+		<div class="section" id="samurai-fight-2" nb="2">
+			<h2 class="cacher">2e Combinaison</h2>
+			<p class="cacher">Celle-ci va s'afficher 4 secondes</p>
+			<img class="combinaison" id="combinaison-2" src="img/combinaison-2.png">
+			<span class="your-turn">A vous de jouer !</span>
+			<button class="gg" go="samurai-fight" nb="3">Bravo ! Passer au suivant</button>
+			<button class="zero" go="samurai">Perdu ! Try again</button>
+		</div>
+		<div class="section" id="samurai-fight-3" nb="3">
+			<h2 class="cacher">3e Combinaison</h2>
+			<p class="cacher">Celle-ci va s'afficher 3 secondes</p>
+			<img class="combinaison" id="combinaison-3" src="img/combinaison-3.png">
+			<span class="your-turn">A vous de jouer !</span>
+			<button class="gg" go="final-win">Bravo ! Tu as terrassé le Samurai !!</button>
+			<button class="zero" go="samurai">Perdu ! Try again</button>
+		</div>
+		<div class="section" id="final-win">
+			<h2>Bravo</h2>
+			<img class="cinematique" src="img/Samurai-win.jpg">
+			<button class="reset">Revenir au début</button>
+		</div>		
+	</body>
+</html>
